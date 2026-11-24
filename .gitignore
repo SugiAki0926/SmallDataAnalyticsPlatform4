@@ -1,0 +1,26 @@
+.cursor/
+docs/
+infographic/
+config/
+
+# --- Airflow ---
+# タスク・スケジューラのログ（./logs をコンテナへマウントしている）
+logs/
+# fernet_key / jwt_secret を含む。config/airflow.cfg も対象
+airflow.cfg
+**/airflow.cfg.bak
+# ローカル実行時の SQLite メタデータ DB
+airflow.db
+airflow.db-journal
+*.pid
+webserver_config.py
+standalone_admin_password.txt
+simple_auth_manager_passwords.json
+simple_auth_manager_passwords.json.generated
+# DAG をパースしたときのバイトコード
+__pycache__/
+*.py[cod]
+# Compose の管理ユーザーパスワードなど
+.env
+.env.*
+!.env.example
