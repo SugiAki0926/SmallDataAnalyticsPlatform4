@@ -1,0 +1,5 @@
+apache-airflow==3.0.0
+minio==7.2.15
+pandas==2.2.3
+apache-airflow-providers-amazon==9.6.1
+dependencies/sagemaker-2.244.3.dev0.tar.gz

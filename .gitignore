@@ -1,27 +1,83 @@
-.cursor/
-docs/
-infographic/
-config/
+# --- 秘密情報 ---
+# 章の .env は UID や API キーを後から書く場所なので、リポジトリには載せない。
+# 雛形（.env.template など）だけ追跡する。
+.env
+.env.*
+!.env.template
+!.env.example
+!.env*.example
+.envrc
+.pgpass
+**/.pgpass
+.netrc
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+kubeconfig.yaml
+**/*kubeconfig*.yaml
+credentials.json
+service-account*.json
+secrets.toml
+xda-alpha-access-llm-*.json
+slackgpt-*.json
 
-# --- Airflow ---
-# タスク・スケジューラのログ（./logs をコンテナへマウントしている）
+# --- Airflow が起動時に作るもの ---
 logs/
-# fernet_key / jwt_secret を含む。config/airflow.cfg も対象
 airflow.cfg
+**/airflow.cfg
 **/airflow.cfg.bak
-# ローカル実行時の SQLite メタデータ DB
 airflow.db
-airflow.db-journal
 *.pid
-webserver_config.py
 standalone_admin_password.txt
 simple_auth_manager_passwords.json
 simple_auth_manager_passwords.json.generated
-# DAG をパースしたときのバイトコード
+.airflowlocal
+
+# --- Kubernetes / レジストリ（chapter 11, 17） ---
+.k3s/
+docker-registry-persistence/
+
+# --- 講座中にダウンロード・生成するデータ ---
+data/
+vectorstore/
+*.log
+
+# --- Python / Poetry ---
+.venv/
+venv/
 __pycache__/
 *.py[cod]
-# Compose の管理ユーザーパスワードなど
-.env
-.env.*
-!.env.example
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.cache/
+.ipynb_checkpoints/
+.chalice/
+
+# --- OS / エディタ / 一時ファイル ---
 .DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+.cursor/
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
